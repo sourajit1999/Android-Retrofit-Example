@@ -1,4 +1,4 @@
-package com.applex.zephyr_task_2.Adapters;
+package com.zephyr.task2.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.applex.zephyr_task_2.Activities.BookActivity;
-import com.applex.zephyr_task_2.Models.BooksModel;
-import com.applex.zephyr_task_2.R;
+import com.zephyr.task2.Activities.BookActivity;
+import com.zephyr.task2.Models.BooksModel;
+import com.zephyr.task2.R;
 import com.thekhaeng.pushdownanim.PushDownAnim;
 import java.util.ArrayList;
 

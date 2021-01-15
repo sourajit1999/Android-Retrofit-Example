@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.applex.zephyr_task_2">
+    package="com.zephyr.task2">
 
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -23,11 +23,11 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".Activities.BookActivity"
+            android:name="com.zephyr.task2.Activities.BookActivity"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".Activities.MainActivity"
+            android:name="com.zephyr.task2.Activities.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -38,7 +38,7 @@
         </activity>
 
         <activity
-            android:name=".Activities.SplashActivity"
+            android:name="com.zephyr.task2.Activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>

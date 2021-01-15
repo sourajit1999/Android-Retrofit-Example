@@ -1,6 +1,6 @@
-package com.applex.zephyr_task_2.Utilities;
+package com.zephyr.task2.Utilities;
 
-import com.applex.zephyr_task_2.Interfaces.APIInterface;
+import com.zephyr.task2.Interfaces.APIInterface;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

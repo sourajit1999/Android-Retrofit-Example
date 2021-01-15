@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -10,29 +11,20 @@
     <ImageView
         android:id="@+id/splash_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:padding="120dp"
+        android:src="@drawable/ic_baseline_menu_book_24"
+        app:tint="@color/purple_700" />
 
     <TextView
         android:id="@+id/from"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/from"
+        android:text="Zaypher Task 2\nSourajit Basu"
         android:gravity="center|bottom"
-        android:textColor="@color/light_black"
         android:textSize="15sp"
-        android:layout_above="@+id/preptotal"
-        android:textStyle="bold"
-        android:textAllCaps="false"/>
-
-    <TextView
-        android:id="@+id/preptotal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="center|bottom"
-        android:text="@string/prajata_samanta"
         android:layout_marginBottom="20dp"
-        android:textColor="@color/light_black"
-        android:textSize="15sp" />
+        android:textAllCaps="false"/>
 
 </RelativeLayout>

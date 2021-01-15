@@ -1,4 +1,4 @@
-package com.applex.zephyr_task_2.Activities;
+package com.zephyr.task2.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,13 +22,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
-import com.applex.zephyr_task_2.Adapters.RecyclerAdapter;
-import com.applex.zephyr_task_2.Models.BooksModel;
-import com.applex.zephyr_task_2.Models.DataModel;
-import com.applex.zephyr_task_2.Preferences.IntroPref;
-import com.applex.zephyr_task_2.R;
-import com.applex.zephyr_task_2.Utilities.RetrofitHelper;
-import com.facebook.shimmer.ShimmerFrameLayout;
+import com.zephyr.task2.Adapters.RecyclerAdapter;
+import com.zephyr.task2.Models.BooksModel;
+import com.zephyr.task2.Models.DataModel;
+import com.zephyr.task2.SharedPreference.IntroPref;
+import com.zephyr.task2.R;
+import com.zephyr.task2.Utilities.RetrofitHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout main_layout;
     private LinearLayout orderByLayout;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private ShimmerFrameLayout shimmerFrameLayout;
     private ArrayList<BooksModel> booksModelArrayList;
 
     @Override
@@ -64,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_list);
         orderByLayout = findViewById(R.id.orderByLayout);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh);
-        shimmerFrameLayout = findViewById(R.id.shimmerLayout);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -72,8 +69,6 @@ public class MainActivity extends AppCompatActivity {
         settingImage(R.drawable.no_data);
         settingImage(R.drawable.error);
 
-        shimmerFrameLayout.setVisibility(View.VISIBLE);
-        shimmerFrameLayout.startShimmer();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -110,8 +105,6 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<DataModel>() {
             @Override
             public void onResponse(@NonNull Call<DataModel> call, @NonNull  Response<DataModel> response) {
-                shimmerFrameLayout.stopShimmer();
-                shimmerFrameLayout.setVisibility(View.GONE);
                 error.setVisibility(View.GONE);
                 order.setSelection(introPref.getSortOrder());
                 booksModelArrayList.addAll(Objects.requireNonNull(response.body()).getData());
@@ -121,8 +114,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<DataModel> call, @NonNull Throwable t) {
                 main_layout.setBackgroundColor(getResources().getColor(R.color.white));
-                shimmerFrameLayout.stopShimmer();
-                shimmerFrameLayout.setVisibility(View.GONE);
                 orderByLayout.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.GONE);
                 no_data.setVisibility(View.GONE);

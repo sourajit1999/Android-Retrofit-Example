@@ -1,4 +1,4 @@
-package com.applex.zephyr_task_2.Models;
+package com.zephyr.task2.Models;
 
 import java.util.ArrayList;
 

@@ -27,8 +27,7 @@
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:layout_gravity="center_vertical"
-                android:background="@drawable/background_bubble"/>
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/book_name"
@@ -36,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/background_bubble"
                 android:layout_marginStart="15dp"/>
 
         </LinearLayout>

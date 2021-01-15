@@ -1,4 +1,4 @@
-package com.applex.zephyr_task_2.Activities;
+package com.zephyr.task2.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.applex.zephyr_task_2.R;
+import com.zephyr.task2.R;
 import java.util.Objects;
 
 public class BookActivity extends AppCompatActivity {

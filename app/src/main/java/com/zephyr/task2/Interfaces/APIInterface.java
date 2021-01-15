@@ -1,6 +1,6 @@
-package com.applex.zephyr_task_2.Interfaces;
+package com.zephyr.task2.Interfaces;
 
-import com.applex.zephyr_task_2.Models.DataModel;
+import com.zephyr.task2.Models.DataModel;
 import retrofit2.Call;
 import retrofit2.http.GET;
 

@@ -6,6 +6,7 @@
         <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="android:editTextColor">@color/white</item>
         <item name="android:textColorHint">@color/very_light_grey</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -13,8 +14,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/white</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:windowBackground">@color/white</item>
         <item name="android:statusBarColor">@color/white</item>
     </style>
 

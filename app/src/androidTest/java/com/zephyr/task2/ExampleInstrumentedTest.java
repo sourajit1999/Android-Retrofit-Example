@@ -1,4 +1,4 @@
-package com.applex.zephyr_task_2;
+package com.zephyr.task2;
 
 import android.content.Context;
 

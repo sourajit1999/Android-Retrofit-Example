@@ -1,4 +1,4 @@
-package com.applex.zephyr_task_2.Preferences;
+package com.zephyr.task2.SharedPreference;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

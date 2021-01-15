@@ -7,16 +7,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="55dp"
-        app:titleTextColor="@color/white"
-        app:title="Zephyr Task 2"
-        android:background="@color/colorPrimaryDark"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        android:theme="@style/AppTheme.Toolbar"/>
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            app:title="Zephyr 2 SB"
+            android:background="@color/colorPrimaryDark"
+            android:elevation="0dp"
+            app:titleTextColor="@color/white"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh"
@@ -34,7 +41,7 @@
                 android:layout_height="wrap_content"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -68,7 +75,7 @@
                     android:id="@+id/view2"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/grey"/>
+                    android:background="@color/light_grey"/>
 
             </LinearLayout>
 
@@ -78,42 +85,11 @@
                 android:layout_height="match_parent"
                 android:background="@color/grey">
 
-                <com.facebook.shimmer.ShimmerFrameLayout
-                    android:id="@+id/shimmerLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    app:shimmer_repeat_mode="restart"
-                    android:background="@color/grey"
-                    android:paddingTop="8dp"
-                    app:shimmer_shape="radial">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <include layout="@layout/layout_shimmer" />
-                        <include layout="@layout/layout_shimmer" />
-                        <include layout="@layout/layout_shimmer" />
-                        <include layout="@layout/layout_shimmer" />
-                        <include layout="@layout/layout_shimmer" />
-                        <include layout="@layout/layout_shimmer" />
-                        <include layout="@layout/layout_shimmer" />
-                        <include layout="@layout/layout_shimmer" />
-                        <include layout="@layout/layout_shimmer" />
-                        <include layout="@layout/layout_shimmer" />
-
-                    </LinearLayout>
-
-                </com.facebook.shimmer.ShimmerFrameLayout>
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clipToPadding="false"
-                    android:paddingTop="8dp"
                     android:overScrollMode="never"
                     android:descendantFocusability="blocksDescendants"
                     app:reverseLayout="false"/>
