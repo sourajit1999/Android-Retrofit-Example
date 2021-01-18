@@ -1,4 +1,4 @@
-package com.zephyr.task2.Activities;
+package com.zephyr.task2;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,24 +10,24 @@ import android.widget.TextView;
 import com.zephyr.task2.R;
 import java.util.Objects;
 
-public class BookActivity extends AppCompatActivity {
+public class BookDetails extends AppCompatActivity {
+
+    TextView name;
+    TextView author;
+    TextView category;
+    TextView date;
+    TextView pages;
+
+    String book_name;
+    String author_string;
+    String category_string;
+    String publish_date;
+    String page_count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
-
-        Toolbar tb = findViewById(R.id.toolbar);
-        setSupportActionBar(tb);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
-
-        TextView book_name_text_view = findViewById(R.id.book_name);
-        TextView author_text_view = findViewById(R.id.author);
-        TextView category_text_view = findViewById(R.id.category);
-        TextView publish_date_text_view = findViewById(R.id.publish_date);
-        TextView page_count_text_view = findViewById(R.id.page_count);
 
         LinearLayout book_name_layout = findViewById(R.id.book_name_layout);
         LinearLayout author_layout = findViewById(R.id.author_layout);
@@ -35,46 +35,63 @@ public class BookActivity extends AppCompatActivity {
         LinearLayout publish_date_layout = findViewById(R.id.publish_date_layout);
         LinearLayout page_count_layout = findViewById(R.id.page_count_layout);
 
-        String book_name = getIntent().getStringExtra("book_name");
-        String author = getIntent().getStringExtra("author");
-        String category = getIntent().getStringExtra("category");
-        String publish_date = getIntent().getStringExtra("publish_date");
-        String page_count = getIntent().getStringExtra("page_count");
+        initialize();
 
         if(book_name != null && !book_name.isEmpty()) {
-            book_name_text_view.setText(book_name);
+            name.setText(book_name);
         }
         else {
             book_name_layout.setVisibility(View.GONE);
         }
 
-        if(author != null && !author.isEmpty()) {
-            author_text_view.setText(author);
+        if(author_string != null && !author_string.isEmpty()) {
+            author.setText(author_string);
         }
         else {
             author_layout.setVisibility(View.GONE);
         }
 
-        if(category != null && !category.isEmpty()) {
-            category_text_view.setText(category);
+        if(category_string != null && !category_string.isEmpty()) {
+            category.setText(category_string);
         }
         else {
             category_layout.setVisibility(View.GONE);
         }
 
         if(publish_date != null && !publish_date.isEmpty()) {
-            publish_date_text_view.setText(publish_date);
+            date.setText(publish_date);
         }
         else {
             publish_date_layout.setVisibility(View.GONE);
         }
 
         if(page_count != null && !page_count.isEmpty()) {
-            page_count_text_view.setText(page_count);
+            pages.setText(page_count);
         }
         else {
             page_count_layout.setVisibility(View.GONE);
         }
+    }
+
+    private void initialize(){
+        Toolbar tb = findViewById(R.id.toolbar);
+        setSupportActionBar(tb);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
+
+        name = findViewById(R.id.book_name);
+        author = findViewById(R.id.author);
+        category = findViewById(R.id.category);
+        date = findViewById(R.id.publish_date);
+        pages = findViewById(R.id.page_count);
+
+        book_name = getIntent().getStringExtra("book_name");
+        author_string = getIntent().getStringExtra("author");
+        category_string = getIntent().getStringExtra("category");
+        publish_date = getIntent().getStringExtra("publish_date");
+        page_count = getIntent().getStringExtra("page_count");
+
     }
 
     @Override

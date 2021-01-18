@@ -1,10 +1,10 @@
-package com.zephyr.task2.Interfaces;
+package com.zephyr.task2.Utilities;
 
 import com.zephyr.task2.Models.DataModel;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface APIInterface {
+public interface ServiceInterface {
 
     String BASE_URL = "https://run.mocky.io/v3/";
 

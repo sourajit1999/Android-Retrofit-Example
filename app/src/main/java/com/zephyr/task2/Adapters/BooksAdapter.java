@@ -9,18 +9,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.zephyr.task2.Activities.BookActivity;
+import com.zephyr.task2.BookDetails;
 import com.zephyr.task2.Models.BooksModel;
 import com.zephyr.task2.R;
 import com.thekhaeng.pushdownanim.PushDownAnim;
 import java.util.ArrayList;
 
-public class RecyclerAdapter extends RecyclerView.Adapter <RecyclerAdapter.ProgrammingViewHolder> {
+public class BooksAdapter extends RecyclerView.Adapter <BooksAdapter.ProgrammingViewHolder> {
 
     private final ArrayList<BooksModel> mList;
     private final Context context;
 
-    public RecyclerAdapter(Context context, ArrayList<BooksModel> list) {
+    public BooksAdapter(Context context, ArrayList<BooksModel> list) {
         this.mList = list;
         this.context = context;
     }
@@ -45,9 +45,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter <RecyclerAdapter.Progr
         }
 
         PushDownAnim.setPushDownAnimTo(holder.itemView)
-            .setScale(PushDownAnim.MODE_STATIC_DP, 3)
+            .setScale(PushDownAnim.MODE_STATIC_DP, 5)
             .setOnClickListener(view -> {
-                Intent intent = new Intent(context, BookActivity.class);
+                Intent intent = new Intent(context, BookDetails.class);
                 intent.putExtra("book_name", currentItem.getBook_name());
                 intent.putExtra("author", currentItem.getAuthor());
                 intent.putExtra("category", currentItem.getCategory());

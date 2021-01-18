@@ -1,4 +1,4 @@
-package com.zephyr.task2.Activities;
+package com.zephyr.task2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,11 +22,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
-import com.zephyr.task2.Adapters.RecyclerAdapter;
+import com.zephyr.task2.Adapters.BooksAdapter;
 import com.zephyr.task2.Models.BooksModel;
 import com.zephyr.task2.Models.DataModel;
-import com.zephyr.task2.SharedPreference.IntroPref;
-import com.zephyr.task2.R;
+import com.zephyr.task2.Utilities.PreferenceManager;
 import com.zephyr.task2.Utilities.RetrofitHelper;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,7 +38,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private Spinner order;
-    private IntroPref introPref;
+    private PreferenceManager preferenceManager;
     private ImageView no_data, error;
     private RecyclerView recyclerView;
     private RelativeLayout main_layout;
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        introPref = new IntroPref(MainActivity.this);
+        preferenceManager = new PreferenceManager(MainActivity.this);
         booksModelArrayList = new ArrayList<>();
 
         order = findViewById(R.id.order);
@@ -101,12 +100,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void buildRecyclerView() {
-        Call<DataModel> call = RetrofitHelper.getInstance().getApiInterface().getBooksList();
+        Call<DataModel> call = RetrofitHelper.getInstance().getServiceInterface().getBooksList();
         call.enqueue(new Callback<DataModel>() {
             @Override
             public void onResponse(@NonNull Call<DataModel> call, @NonNull  Response<DataModel> response) {
                 error.setVisibility(View.GONE);
-                order.setSelection(introPref.getSortOrder());
+                order.setSelection(preferenceManager.getSortOrder());
                 booksModelArrayList.addAll(Objects.requireNonNull(response.body()).getData());
                 sortingList(booksModelArrayList, order.getSelectedItem().toString());
             }
@@ -221,8 +220,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
 
-            RecyclerAdapter recyclerAdapter = new RecyclerAdapter(MainActivity.this, arrayList);
-            recyclerView.setAdapter(recyclerAdapter);
+            BooksAdapter booksAdapter = new BooksAdapter(MainActivity.this, arrayList);
+            recyclerView.setAdapter(booksAdapter);
             if(swipeRefreshLayout.isRefreshing()) {
                 swipeRefreshLayout.setRefreshing(false);
             }
@@ -230,8 +229,8 @@ public class MainActivity extends AppCompatActivity {
             order.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    introPref.setSortOrder(position);
-                    order.setSelection(introPref.getSortOrder());
+                    preferenceManager.setSortOrder(position);
+                    order.setSelection(preferenceManager.getSortOrder());
                     sortingList(arrayList, order.getSelectedItem().toString());
                 }
 

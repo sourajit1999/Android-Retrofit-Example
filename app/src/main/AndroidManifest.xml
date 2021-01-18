@@ -23,11 +23,11 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.zephyr.task2.Activities.BookActivity"
+            android:name="com.zephyr.task2.BookDetails"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.zephyr.task2.Activities.MainActivity"
+            android:name="com.zephyr.task2.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -38,7 +38,7 @@
         </activity>
 
         <activity
-            android:name="com.zephyr.task2.Activities.SplashActivity"
+            android:name="com.zephyr.task2.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>

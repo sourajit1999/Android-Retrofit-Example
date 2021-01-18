@@ -1,14 +1,10 @@
-package com.zephyr.task2.Activities;
+package com.zephyr.task2;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Display;
-import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
-import com.zephyr.task2.R;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -1,10 +1,10 @@
-package com.zephyr.task2.SharedPreference;
+package com.zephyr.task2.Utilities;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class IntroPref {
+public class PreferenceManager {
 
     private SharedPreferences preferences;
     private final SharedPreferences.Editor editor;
@@ -12,7 +12,7 @@ public class IntroPref {
     private static final String ORDER_BY = "order_by";
 
     @SuppressLint("CommitPrefEdits")
-    public IntroPref(Context context) {
+    public PreferenceManager(Context context) {
         if(context != null) {
             preferences = context.getSharedPreferences(PREF_NAME, 0);
         }

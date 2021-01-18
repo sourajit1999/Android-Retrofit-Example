@@ -1,19 +1,18 @@
 package com.zephyr.task2.Utilities;
 
-import com.zephyr.task2.Interfaces.APIInterface;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitHelper {
 
     private static RetrofitHelper instance = null;
-    private final APIInterface apiInterface;
+    private final ServiceInterface serviceInterface;
 
     private RetrofitHelper() {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(APIInterface.BASE_URL)
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(ServiceInterface.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        apiInterface = retrofit.create(APIInterface.class);
+        serviceInterface = retrofit.create(ServiceInterface.class);
     }
 
     public static synchronized RetrofitHelper getInstance() {
@@ -23,7 +22,7 @@ public class RetrofitHelper {
         return instance;
     }
 
-    public APIInterface getApiInterface() {
-        return apiInterface;
+    public ServiceInterface getServiceInterface() {
+        return serviceInterface;
     }
 }

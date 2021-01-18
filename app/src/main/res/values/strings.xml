@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">Zephyr_Task_2</string>
     <string name="order_by">Order By :</string>
-    <string name="search">Search</string>
-    <string name="book_name">Book Name:</string>
+
     <string name="the_left_hand_of_darkness">The Left Hand Of Darkness</string>
     <string name="author">Author:</string>
     <string name="category">Category:</string>
@@ -11,11 +10,15 @@
     <string name="error">error</string>
     <string name="no_data">no data</string>
 
+    <string name="search">Search</string>
+    <string name="book_name">Book Name:</string>
+
     <string-array name="orders">
         <item>Book Name</item>
-        <item>Author</item>
         <item>Category</item>
         <item>Publish Date</item>
-        <item>Page Count</item>
+        <item>Author</item>
+        <item>Pages</item>
     </string-array>
+
 </resources>
